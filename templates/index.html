@@ -5,25 +5,38 @@
     <title>python pandas</title>
   </head>
   <body>
-    <center><h1>python pandas</h1></center>
+    <center><h1>python pandas</h1>
+            <p>Mai Rachlevsky, Tina Wong</p>
+    </center>
     <h3>What is pandas?</h3>
       <ul>
         <li>Python Data Analysis Library</li>
         <li>Derived from "panel data"</li>
-        <li>Created by William McKinney in 2008</li>
+        <li>Created by William McKinney in 2008 and has quickly become one of the most widely used tools for working with data</li>
         <li>Open source</li>
-        <li>Used for data analysis and modeling</li>
+        <li>Used for data analysis and modeling, which is critical in the world of data science</li>
+        <li>It is often used alongside other python libraries such as numpy, which helps with calculations, and matplotlib, which can plot data points</li>
       </ul>
     <h3>What can pandas do?</h3>
       <ul>
-        <li>Includes data structures</li>
+        <li>Includes data structures to allow you to view data in an organized format, such as a DataFrame and a Series</li>
         <li>Can read data from a variety of formats
           <ul>
             <li>To read from a csv and convert it to a DataFrame, use the method read_csv</li>
           </ul>
         </li>
-        <li>Statistics</li>
-        <li>Data manipulation</li>
+        <li>Statistics
+          <ul>
+            <li>It has many functions that are helpful in statistics, such as the mean of all columns, max, min, median, and standard deviation of each column</li>
+          </ul>
+        </li>
+        <li>Data manipulation
+          <ul>
+            <li>You can select values from a column easily, filter, sort, and group data</li>
+            <li>Other functions allow you to clean the data by taking away null values</li>
+            <li>There are commands for joining or combining data frames or rows/columns</li>
+          </ul>
+        </li>
       </ul>
     <h3>What are advantages of using pandas?</h3>
       <ul>
@@ -51,6 +64,18 @@
           </ul>
         </li>
       </ul>
+    <br>
+    <table border="1">
+      <tr><td><strong>Series</strong></td><td><strong>DataFrame</strong></td></tr>
+      <tr><td>pd.Series(array) [ex: pd.Series([1,2,3,4])]</td><td>pd.DataFrame(array)</td></tr>
+      <tr><td>One-dimensional</td><td>Two-dimensional</td></tr>
+      <tr><td>Can hold any data type</td><td>Organized in rows and columns; can have more than one column</td></tr>
+      <tr><td>Values are mutable</td><td>Each column can have different data types</td></tr>
+      <tr><td>Size is immutable</td><td>Size is mutable</td></tr>
+    </table>
+    <br>
+    <hr>
+    <br>
     <footer>
       For more information, visit the <a href="https://pandas.pydata.org/">documentation</a>.
     </footer>
