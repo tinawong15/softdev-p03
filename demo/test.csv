@@ -1,0 +1,5 @@
+,Integers,Strings,Floats,Booleans
+0,1,hello,1.23,True
+1,23,pandas,23.5,False
+2,456,world,45.6,True
+3,7890,!,7.89,False
