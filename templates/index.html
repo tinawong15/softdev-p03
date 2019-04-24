@@ -77,15 +77,16 @@
     <hr>
     <h2>Example Code</h2>
     <h3>Create a Series</h3>
+    <p>Using an example one-dimensional array <code>[1, 2, 3, 4]</code> and the syntax below, pandas can create a series: <br>
     <code>
       your_series = pd.Series([1,2,3,4]) <br>
       print(your_series)
     })
-    </code>
-    <br><br>
+    </code></p>
     <button id="0" onclick="toggle('series', '0')">Show Result</button>
     <div id="series" style="display: none;">{{ series | safe}}</div>
     <h3>Create a DataFrame</h3>
+    <p>Using the syntax below, pandas can create a DataFrame with four columns and four rows consisting of different types: <br>
     <code>
       df = pd.DataFrame({ <br>
     "Integers": [1, 23, 456, 7890], <br>
@@ -95,7 +96,7 @@
     }) <br>
     print(df)
     </code>
-    <br><br>
+    </p>
     <button id="1" onclick="toggle('df', '1')">Show Result</button>
     <div id="df" style="display: none;">{{ data | safe}}</div>
     <h3>Get a Column from a DataFrame</h3>
@@ -105,12 +106,15 @@
     <br><br>
     <button id="2" onclick="toggle('int', '2')">Show Result</button>
     <div id="int" style="display: none;">{{ integers | safe}}</div>
+    <h3>Get Multiple Columns from a DataFrame</h3>
     <p><code>
       print(df[["Integers","Strings"]])
     </code></p>
     <button id="3" onclick="toggle('two', '3')">Show Result</button>
     <div id="two" style="display: none;">{{ two_columns | safe}}</div>
-    <p>There are many statistics that you can request from each column of a DataFrame, including the ones listed below. <br> To query one specific statistic, such as the mean of the column Integers, use <code>df["Integers"].mean()</code>.</p>
+    <h3>Get Statistics from a DataFrame</h3>
+    <p>There are many statistics that you can request from each column of a DataFrame, including the ones listed below. <br> To query one specific statistic, such as the mean of the column Integers, use <code>df["Integers"].mean()</code>.<br>
+    There will be other examples of statistics you can query below with the DataFrame derived from a csv.</p>
     <button id="4" onclick="toggle('stat', '4')">Show Result</button>
     <div id="stat" style="display: none;">{{ stat | safe}}</div>
     <h3>Create a DataFrame with Existing list</h3>
@@ -122,31 +126,36 @@
     <br><br>
     <button id="5" onclick="toggle('list', '5')">Show Result</button>
     <div id="list" style="display: none;">{{ list_df | safe}}</div>
-    <p><code>
-      df = df.append(list_df, ignore_index=True)
+    <p>Once you create a DataFrame, the DataFrame is still mutable, so you can append one DataFrame to another.<br><code>
+      df = df.append(list_df, ignore_index=True)<br>
       print(df)
     </code></p>
     <button id="6" onclick="toggle('append', '6')">Show Result</button>
     <div id="append" style="display: none;">{{ new_df | safe}}</div>
     <h3>Create a DataFrame with Existing csv</h3>
-    <code>
+    <p>Using any csv file you have, you can convert it to a DataFrame. <code>.head(n)</code> will show the first n rows of the DataFrame. If <code>.head()</code> gets no arguments, the default rows shown will be 5.<br><code>
       csv_path = os.path.join('uscities.csv') <br>
       csv_df = pd.read_csv(csv_path, delimiter=",") <br>
       print(csv_df.head(10))
-    </code>
-    <br><br>
+    </code></p>
     <button id="7" onclick="toggle('head', '7')">Show Result</button>
     <div id="head" style="display: none;">{{ head | safe}}</div>
-    <p><code>print(csv_df.shape)</code></p>
+    <p><code>.shape</code> shows the number of rows and the number of columns the DataFrame has. <br><code>print(csv_df.shape)</code></p>
     <button id="8" onclick="toggle('shape', '8')">Show Result</button>
     <div id="shape" style="display: none;">{{ shape }}</div>
-    <p><code>
+    <p><code>.tail()</code> works like <code>.head()</code> does, except that it shows the last n rows.<br><code>
       tail = csv_df.tail()
       <br>
       print(tail)
     </code></p>
     <button id="9" onclick="toggle('tail', '9')">Show Result</button>
     <div id="tail" style="display: none;">{{ tail | safe }}</div>
+    <p><code>.sample(n)</code> will show you n random rows from the DataFrame.<br><code>
+      print(csv_df.sample(3))
+    </code></p>
+    <button id="13" onclick="toggle('samp', '13')">Show Result</button>
+    <div id="samp" style="display: none;">{{ sample | safe }}</div>
+    <h3>Get More Statistics from a DataFrame</h3>
     <p><code>
       print(csv_df.max())
     </code></p>
@@ -162,11 +171,7 @@
     </code></p>
     <button id="12" onclick="toggle('median', '12')">Show Result</button>
     <div id="median" style="display: none;">{{ median | safe }}</div>
-    <p><code>
-      print(csv_df.sample(3))
-    </code></p>
-    <button id="13" onclick="toggle('samp', '13')">Show Result</button>
-    <div id="samp" style="display: none;">{{ sample | safe }}</div>
+    <h3>Sort Values From a DataFrame</h3>
     <p><code>
       csv_df.sort_values('density') # ascending order
     </code>
@@ -178,26 +183,26 @@
     </code></p>
     <button id="15" onclick="toggle('dec', '15')">Show Result</button>
     <div id="dec" style="display: none;">{{ dec | safe }}</div>
-    <p><code>
-      csv_df.dropna()
+    <p><code>.dropna()</code> allows you to drop any row with null values in them, which clears the DataFrame of any outliers affecting statistical values and focuses you on the meaningful data values. As you can see from the shape of the DataFrame after you run this command, there are less rows.<br><code>
+      csv_df.dropna()<br>
       print(csv_df.shape)
     </code></p>
     <button id="16" onclick="toggle('new_shape', '16')">Show Result</button>
     <div id="new_shape" style="display: none;">{{ new_shape }}</div>
-    <p><code>
-      csv_df[csv_df['lat'] > 45]
+    <p>Show only the first 10 rows where the latitute of the city is greater than 45 degrees.<br><code>
+      print(csv_df[csv_df['lat'] > 45].head(10))
     </code></p>
     <button id="17" onclick="toggle('lat', '17')">Show Result</button>
     <div id="lat" style="display: none;">{{ lat | safe }}</div>
-    <p><code>
-      csv_df[['city','state_id']].query('state_id == "NY"')
+    <p>Show the name of the city and the state where the state that the city belongs to is New York. Only the first 20 results should be displayed.<br><code>
+      print(csv_df[['city','state_id']].query('state_id == "NY"').head(20))
     </code></p>
     <button id="18" onclick="toggle('ny', '18')">Show Result</button>
     <div id="ny" style="display: none;">{{ ny | safe }}</div>
     <br>
     <hr>
     <footer>
-      For more information, visit the <a href="https://pandas.pydata.org/">documentation</a>.
+      For more information on this python library, visit the <a href="https://pandas.pydata.org/">documentation</a>.
     </footer>
   </body>
   <script type="text/javascript">
