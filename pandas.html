@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>python pandas</title>
+  </head>
+  <body>
+    <center><h1>python pandas</h1>
+            <p>Mai Rachlevsky, Tina Wong</p>
+    </center>
+    <main class="container">
+    <h3>What is pandas?</h3>
+      <ul>
+        <li>Python Data Analysis Library</li>
+        <li>Derived from "panel data"</li>
+        <li>Created by William McKinney in 2008 and has quickly become one of the most widely used tools for working with data</li>
+        <li>Open source</li>
+        <li>Used for data analysis and modeling, which is critical in the world of data science</li>
+        <li>It is often used alongside other python libraries such as numpy, which helps with calculations, and matplotlib, which can plot data points</li>
+      </ul>
+    <h3>What can pandas do?</h3>
+      <ul>
+        <li>Includes data structures to allow you to view data in an organized format, such as a DataFrame and a Series</li>
+        <li>Can read data from a variety of formats
+          <ul>
+            <li>To read from a csv and convert it to a DataFrame, use the method read_csv</li>
+          </ul>
+        </li>
+        <li>Statistics
+          <ul>
+            <li>It has many functions that are helpful in statistics, such as the mean of all columns, max, min, median, and standard deviation of each column</li>
+          </ul>
+        </li>
+        <li>Data manipulation
+          <ul>
+            <li>You can select values from a column easily, filter, sort, and group data</li>
+            <li>Other functions allow you to clean the data by taking away null values</li>
+            <li>There are commands for joining or combining data frames or rows/columns</li>
+          </ul>
+        </li>
+      </ul>
+    <h3>What are advantages of using pandas?</h3>
+      <ul>
+        <li>Efficient representation of data that is easy to read and useful for data analysis</li>
+        <li>Simple syntax and flexible</li>
+        <li>Able to handle large datasets</li>
+        <li>Data filtering and subsetting</li>
+      </ul>
+    <h3>What are some disadvantages?</h3>
+      <ul>
+        <li>Not good for arrays that are more than 2 dimensional</li>
+        <li>Not good for more complex data modeling</li>
+        <li>There are many other tools used for data analysis such as Excel VBA</li>
+      </ul>
+    <h3>How do you get started?</h3>
+      <ul>
+        <li>Installed through the terminal by executing the command:
+          <ul>
+            <li><code>pip install pandas</code></li>
+          </ul>
+        </li>
+        <li>Use in a Python file by importing the pandas library
+          <ul>
+            <li><code>import pandas as pd</code></li>
+          </ul>
+        </li>
+        <li>One useful tool you can use to clearly and cleanly visualize your data and pandas at work is Jupyter Notebook. pandas does work with regular python files, however, and will display in the terminal.</li>
+      </ul>
+    <h3>Series and DataFrames</h3>
+    <table border="1">
+      <tr><th>Series</th><th>DataFrame</th></tr>
+      <tr><td>pd.Series(array) [ex: pd.Series([1,2,3,4])]</td><td>pd.DataFrame(array)</td></tr>
+      <tr><td>One-dimensional</td><td>Two-dimensional</td></tr>
+      <tr><td>Can hold any data type</td><td>Organized in rows and columns; can have more than one column</td></tr>
+      <tr><td>Values are mutable</td><td>Each column can have different data types</td></tr>
+      <tr><td>Size is immutable</td><td>Size is mutable</td></tr>
+    </table>
+    <br>
+    <hr>
+    <h2><center>Example Code</center></h2>
+    <h3>Create a Series</h3>
+    <p>Using an example one-dimensional array <code>[1, 2, 3, 4]</code> and the syntax below, pandas can create a series: <br>
+    <code>
+      your_series = pd.Series([1,2,3,4]) <br>
+      print(your_series)
+    </code></p>
+    <button class="btn btn-info btn-sm" id="0" onclick="toggle('series', '0')">Show Result</button>
+    <div id="series" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>0</th>      </tr>
+        <tr><th>0</th><td>1</td></tr>
+        <tr><th>1</th><td>2</td></tr>
+        <tr><th>2</th><td>3</td></tr>
+        <tr><th>3</th><td>4</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Create a DataFrame</h3>
+    <p>Using the syntax below, pandas can create a DataFrame with four columns and four rows consisting of different types: <br>
+    <code>
+      df = pd.DataFrame({ <br>
+    "Integers": [1, 23, 456, 7890], <br>
+    "Strings": ['hello', 'pandas', 'world', '!'], <br>
+    "Floats": [1.23, 23.5, 45.6, 7.890], <br>
+    "Booleans": [True, False, True, False] <br>
+    }) <br>
+    print(df)
+    </code>
+    </p>
+    <button class="btn btn-info btn-sm" id="1" onclick="toggle('df', '1')">Show Result</button>
+    <div id="df" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>Integers</th> <th>Strings</th>  <th>Floats</th> <th>Booleans</th>  </tr>
+        <tr><th>0</th><td>1</td><td>hello</td><td>1.23</td><td>True</td></tr>
+        <tr><th>1</th><td>23</td><td>pandas</td><td>23.50</td><td>False</td></tr>
+        <tr><th>2</th><td>456</td><td>world</td><td>45.60</td><td>True</td></tr>
+        <tr><th>3</th><td>7890</td><td>!</td><td>7.89</td><td>False</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Get a Column from a DataFrame</h3>
+    <code>
+      print(df["Integers"])
+    </code>
+    <br><br>
+    <button class="btn btn-info btn-sm" id="2" onclick="toggle('int', '2')">Show Result</button>
+    <div id="int" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>Integers</th>      </tr>
+        <tr><th>0</th><td>1</td></tr>
+        <tr><th>1</th><td>23</td></tr>
+        <tr><th>2</th><td>3456</td></tr>
+        <tr><th>3</th><td>7890</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Get Multiple Columns from a DataFrame</h3>
+    <p><code>
+      print(df[["Integers","Strings"]])
+    </code></p>
+    <button class="btn btn-info btn-sm" id="3" onclick="toggle('two', '3')">Show Result</button>
+    <div id="two" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>Integers</th>  <th>Strings</th>    </tr>
+        <tr><th>0</th><td>1</td><td>hello</td></tr>
+        <tr><th>1</th><td>23</td><td>pandas</td></tr>
+        <tr><th>2</th><td>3456</td><td>world</td></tr>
+        <tr><th>3</th><td>7890</td><td>!</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Get Statistics from a DataFrame</h3>
+    <p>There are many statistics that you can request from each column of a DataFrame, including the ones listed below. <br> To query one specific statistic, such as the mean of the column Integers, use <code>df["Integers"].mean()</code>.<br>
+    There will be other examples of statistics you can query below with the DataFrame derived from a csv.</p>
+    <button class="btn btn-info btn-sm" id="4" onclick="toggle('stat', '4')">Show Result</button>
+    <div id="stat" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>Integers</th> <th>Strings</th>  <th>Floats</th> <th>Booleans</th>  </tr>
+        <tr><th>count</th><td>4.000000</td><td>4</td><td>	4.000000</td><td>4</td></tr>
+        <tr><th>unique</th><td>NaN</td><td>4</td><td>NaN</td><td>2</td></tr>
+        <tr><th>top</th><td>NaN</td><td>hello</td><td>NaN</td><td>True</td></tr>
+        <tr><th>freq</th><td>NaN</td><td>1</td><td>NaN</td><td>2</td></tr>
+        <tr><th>mean</th><td>2092.500000</td><td>NaN</td><td>19.555000</td><td>NaN</td></tr>
+        <tr><th>std</th><td>3870.673542</td><td>NaN</td><td>19.712795</td><td>NaN</td></tr>
+        <tr><th>min</th><td>1.000000</td><td>NaN</td><td>1.230000</td><td>NaN</td></tr>
+        <tr><th>25%</th><td>17.500000</td><td>NaN</td><td>6.225000</td><td>NaN</td></tr>
+        <tr><th>50%</th><td>	239.500000</td><td>NaN</td><td>15.695000</td><td>NaN</td></tr>
+        <tr><th>75%</th><td>2314.500000</td><td>NaN</td><td>29.025000</td><td>NaN</td></tr>
+        <tr><th>max</th><td>7890.000000</td><td>NaN</td><td>45.600000</td><td>NaN</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Create a DataFrame with Existing list</h3>
+    <code>
+      your_list = [4, 'softdev', 12.5, False] <br>
+      list_df = pd.DataFrame([your_list], columns=['Integers', 'Strings', 'Floats', 'Booleans']) <br>
+      print(list_df)
+    </code>
+    <br><br>
+    <button class="btn btn-info btn-sm" id="5" onclick="toggle('list', '5')">Show Result</button>
+    <div id="list" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>Integers</th> <th>Strings</th> <th>Floats</th> <th>Booleans</th>   </tr>
+        <tr><th>0</th><td>4</td><td>softdev</td><td>12.5</td><td>False</td></tr>
+        </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p>Once you create a DataFrame, the DataFrame is still mutable, so you can append one DataFrame to another.<br><code>
+      df = df.append(list_df, ignore_index=True)<br>
+      print(df)
+    </code></p>
+    <button class="btn btn-info btn-sm" id="6" onclick="toggle('append', '6')">Show Result</button>
+    <div id="append" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>Integers</th> <th>Strings</th>  <th>Floats</th> <th>Booleans</th>  </tr>
+        <tr><th>0</th><td>1</td><td>hello</td><td>1.23</td><td>True</td></tr>
+        <tr><th>1</th><td>23</td><td>pandas</td><td>23.50</td><td>False</td></tr>
+        <tr><th>2</th><td>456</td><td>world</td><td>45.60</td><td>True</td></tr>
+        <tr><th>3</th><td>7890</td><td>!</td><td>7.89</td><td>False</td></tr>
+      <tr><th>4</th><td>4</td><td>softdev</td><td>12.5</td><td>False</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Create a DataFrame with Existing csv</h3>
+    <p>Using any csv file you have, you can convert it to a DataFrame. <code>.head(n)</code> will show the first n rows of the DataFrame. If <code>.head()</code> gets no arguments, the default rows shown will be 5.<br><code>
+      csv_path = os.path.join('uscities.csv') <br>
+      csv_df = pd.read_csv(csv_path, delimiter=",") <br>
+      print(csv_df.head(10))
+    </code></p>
+    <button class="btn btn-info btn-sm" id="7" onclick="toggle('head', '7')">Show Result</button>
+    <div id="head" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>city</th> <th>city_ascii	</th>  <th>state_id</th> <th>state_name</th> <th>county_fips</th> <th>county_name</th> <th>lat</th> <th>lng</th> <th>population</th> <th>population_proper</th> <th>density</th> <th>source</th><th>incorporated</th><th>timezone</th><th>zips</th><th>id</th></tr>
+        <tr><th>0</th><td>Prairie Ridge</td><td>Prairie Ridge</td><td>WA</td><td>Washington</td><td>53053</td><td>Pierce</td><td>47.1443</td><td>-122.1408</td><td>NaN</td><td>NaN</td><td>1349.8</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98360 98391	</td><td>1840037882</td></tr>
+        <tr><th>1</th><td>Edison</td><td>Edison</td><td>WA</td><td>Washington</td><td>53057</td><td>Skagit</td><td>48.5602</td><td>-122.4311</td><td>NaN</td><td>NaN</td><td>127.4	</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98232	</td><td>1840017314</td></tr>
+        <tr><th>2</th><td>Packwood</td><td>Packwood</td><td>WA</td><td>Washington</td><td>53041</td><td>Lewis</td><td>46.6085</td><td>-121.6702</td><td>NaN</td><td>NaN</td><td>213.9</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98361	</td><td>1840025265</td></tr>
+        <tr><th>3</th><td>Wautauga Beach</td><td>Wautauga Beach	</td><td>WA</td><td>Washington</td><td>53035</td><td>Kitsap</td><td>47.5862</td><td>-122.5482</td><td>NaN</td><td>NaN</td><td>261.7</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98366	</td><td>1840037725</td></tr>
+      <tr><th>4</th><td>Harper</td><td>Harper</td><td>WA</td><td>Washington</td><td>53035</td><td>Kitsap</td><td>47.5207</td><td>-122.5196	</td><td>NaN</td><td>NaN</td><td>342.1</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98366	</td><td>1840037659</td></tr>
+      <tr><th>5</th><td>Telma	</td><td>Telma	</td><td>WA</td><td>Washington</td><td>53007</td><td>Chelan</td><td>47.8432</td><td>-120.8157	</td><td>NaN</td><td>NaN</td><td>1.4</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98826	</td><td>1840037825</td></tr>
+      <tr><th>6</th><td>Kahlotus</td><td>Kahlotus</td><td>WA</td><td>Washington</td><td>53021</td><td>Franklin</td><td>46.6436</td><td>-118.5566	</td><td>189.0</td><td>189.0</td><td>156.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99335	</td><td>1840018478</td></tr>
+      <tr><th>7</th><td>Mondovi</td><td>Mondovi</td><td>WA</td><td>Washington</td><td>53043</td><td>Lincoln</td><td>47.6813</td><td>-118.0164	</td><td>NaN</td><td>NaN</td><td>9.4</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>99122	</td><td>1840037576</td></tr>
+      <tr><th>8</th><td>Washtucna</td><td>Washtucna</td><td>WA</td><td>Washington</td><td>53001</td><td>Adams</td><td>46.7539</td><td>-118.3104	</td><td>195.0</td><td>195.0</td><td>108.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99371	</td><td>1840022312</td></tr>
+      <tr><th>9</th><td>Pleasant Hill	</td><td>Pleasant Hill	</td><td>WA</td><td>Washington</td><td>53033</td><td>King</td><td>47.6154</td><td>-121.9096	</td><td>NaN</td><td>NaN</td><td>25.8</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98014	</td><td>1840037805</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p><code>.shape</code> shows the number of rows and the number of columns the DataFrame has. <br><code>print(csv_df.shape)</code></p>
+    <button class="btn btn-info btn-sm" id="8" onclick="toggle('shape', '8')">Show Result</button>
+    <div id="shape" style="display: none;">(36651, 16)</div>
+    <div style="height: 10px;"></div>
+    <p><code>.tail()</code> works like <code>.head()</code> does, except that it shows the last n rows.<br><code>
+      tail = csv_df.tail()
+      <br>
+      print(tail)
+    </code></p>
+    <button class="btn btn-info btn-sm" id="9" onclick="toggle('tail', '9')">Show Result</button>
+    <div id="tail" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>city</th> <th>city_ascii	</th>  <th>state_id</th> <th>state_name</th> <th>county_fips</th> <th>county_name</th> <th>lat</th> <th>lng</th> <th>population</th> <th>population_proper</th> <th>density</th> <th>source</th><th>incorporated</th><th>timezone</th><th>zips</th><th>id</th></tr>
+        <tr><th>36646</th><td>Pierpont</td><td>Pierpont</td><td>SD</td><td>South Dakota	</td><td>46037</td><td>Day</td><td>45.4953</td><td>	-97.8321</td><td>129.0</td><td>129.0	</td><td>334.0</td><td>polygon</td><td>True</td><td>America/Chicago		</td><td>57468	</td><td>1840000274</td></tr>
+        <tr><th>36647</th><td>Hill City	</td><td>Hill City	</td><td>SD</td><td>South Dakota	</td><td>46103</td><td>Pennington</td><td>-103.5693	</td><td>1008.0</td><td>1008.0</td><td>309.0</td><td>127.4	</td><td>polygon</td><td>True</td><td>America/Denver	</td><td>57745	</td><td>1840002184</td></tr>
+        <tr><th>36648</th><td>Canova</td><td>Canova</td><td>SD</td><td>South Dakota	</td><td>46097</td><td>Miner</td><td>43.8813</td><td>	-97.5040</td><td>103.0</td><td>103.0</td><td>126.0	</td><td>polygon</td><td>True</td><td>America/Chicago		</td><td>57321	</td><td>1840002543</td></tr>
+        <tr><th>36649</th><td>Orient</td><td>Orient	</td><td>SD</td><td>South Dakota	</td><td>46049</td><td>Faulk</td><td>44.9017</td><td>-99.0888	</td><td>62.0</td><td>62.0</td><td>81.0</td><td>polygon</td><td>True</td><td>America/Chicago		</td><td>57467	</td><td>1840000285</td></tr>
+        <tr><th>36650</th><td>Corsica</td><td>Corsica</td><td>SD</td><td>South Dakota	</td><td>46043</td><td>Douglas</td><td>43.4223	</td><td>-98.4073	</td><td>584.0</td><td>584.0</td><td>269.0</td><td>polygon</td><td>True</td><td>America/Chicago		</td><td>57328	</td><td>1840000362</td></tr>
+        </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p><code>.sample(n)</code> will show you n random rows from the DataFrame.<br><code>
+      print(csv_df.sample(3))
+    </code></p>
+    <button class="btn btn-info btn-sm" id="13" onclick="toggle('samp', '13')">Show Result</button>
+    <div id="samp" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>city</th> <th>city_ascii	</th>  <th>state_id</th> <th>state_name</th> <th>county_fips</th> <th>county_name</th> <th>lat</th> <th>lng</th> <th>population</th> <th>population_proper</th> <th>density</th> <th>source</th><th>incorporated</th><th>timezone</th><th>zips</th><th>id</th></tr>
+        <tr><th>4219</th><td>Saint Lucie	</td><td>Saint Lucie	</td><td>FL</td><td>Florida	</td><td>12111</td><td>St. Lucie	</td><td>27.4969</td><td>-80.3417	</td><td>636.0</td><td>636.0	</td><td>279.0	</td><td>polygon</td><td>True</td><td>America/New_York		</td><td>34946	</td><td>1840028959</td></tr>
+        <tr><th>31688</th><td>Michigan Center		</td><td>Michigan Center	</td><td>MI</td><td>Michigan	</td><td>26075</td><td>Jackson</td><td>42.2268	</td><td>-84.3230	</td><td>NaN</td><td>NaN</td><td>595.5	</td><td>polygon</td><td>False</td><td>America/Detroit	</td><td>49254 49201 49203		</td><td>1840004652</td></tr>
+        <tr><th>2387</th><td>Albany</td><td>Albany</td><td>WI</td><td>Wisconsin	</td><td>55045</td><td>Green</td><td>42.7069	</td><td>-89.4367	</td><td>	1011.0</td><td>	1011.0</td><td>307.0	</td><td>polygon</td><td>True</td><td>America/Chicago		</td><td>53502	</td><td>1840002463</td></tr>
+        </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Get More Statistics from a DataFrame</h3>
+    <p><code>
+      print(csv_df.max())
+    </code></p>
+    <button class="btn btn-info btn-sm" id="10" onclick="toggle('max', '10')">Show Result</button>
+    <div id="max" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>0</th></tr>
+        <tr>  <th>city</th> <td>ʻŌʻōkala</td></tr>
+        <tr>  <th>city_ascii	</th>  <td>Zwolle</td></tr>
+        <tr>  <th>state_id</th><td>WY</td> </tr>
+        <tr>  <th>state_name</th> <td>Wyoming</td></tr>
+        <tr>  <th>county_fips</th> <td>78030</td></tr>
+        <tr>  <th>county_name</th> <td>Ziebach</td></tr>
+        <tr>  <th>lat</th> <td>71.2727</td></tr>
+        <tr>  <th>lng</th> <td>-64.7066</td></tr>
+        <tr>  <th>population</th> <td>1.91641e+07</td></tr>
+        <tr>  <th>population_proper</th> <td>8.53767e+06</td></tr>
+        <tr>  <th>density</th> <td>27799</td></tr>
+        <tr>  <th>source</th><td>polygon</td></tr>
+        <tr>  <th>incorporated</th><td>True</td></tr>
+          <tr><th>id</th><td>1850037478</td></tr>
+          </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p><code>
+      print(csv_df.min())
+    </code></p>
+    <button class="btn btn-info btn-sm" id="11" onclick="toggle('min', '11')">Show Result</button>
+    <div id="min" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>0</th></tr>
+        <tr>  <th>city</th> <td>Aaronsburg</td></tr>
+        <tr>  <th>city_ascii	</th>  <td>Aaronsburg</td></tr>
+        <tr>  <th>state_id</th><td>AK</td> </tr>
+        <tr>  <th>state_name</th> <td>Alabama</td></tr>
+        <tr>  <th>county_fips</th> <td>1001</td></tr>
+        <tr>  <th>county_name</th> <td>Abbeville</td></tr>
+        <tr>  <th>lat</th> <td>17.7122</td></tr>
+        <tr>  <th>lng</th> <td>-176.636</td></tr>
+        <tr>  <th>population</th> <td>0</td></tr>
+        <tr>  <th>population_proper</th> <td>0</td></tr>
+        <tr>  <th>density</th> <td>0</td></tr>
+        <tr>  <th>source</th><td>point</td></tr>
+        <tr>  <th>incorporated</th><td>False</td></tr>
+          <tr><th>id</th><td>1630023525</td></tr>
+          </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p><code>
+      print(csv_df.median())
+    </code></p>
+    <button class="btn btn-info btn-sm" id="12" onclick="toggle('median', '12')">Show Result</button>
+    <div id="median" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>0</th></tr>
+        <tr>  <th>county_fips</th> <td>2.918900e+04</td></tr>
+        <tr>  <th>lat</th> <td>3.918830e+01</td></tr>
+        <tr>  <th>lng</th> <td>-8.972020e+01</td></tr>
+        <tr>  <th>population</th> <td>1.157000e+03</td></tr>
+        <tr>  <th>population_proper</th> <td>1.153000e+03</td></tr>
+        <tr>  <th>density</th> <td>2.435000e+02</td></tr>
+        <tr>  <th>incorporated</th><td>1.000000e+00</td></tr>
+          <tr><th>id</th><td>1.840018e+09</td></tr>
+          </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <h3>Sort Values From a DataFrame</h3>
+    <p><code>
+      csv_df.sort_values('density') # ascending order
+    </code>
+    </p>
+    <button class="btn btn-info btn-sm" id="14" onclick="toggle('asc', '14')">Show Result</button>
+    <div id="asc" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>city</th> <th>city_ascii	</th>  <th>state_id</th> <th>state_name</th> <th>county_fips</th> <th>county_name</th> <th>lat</th> <th>lng</th> <th>population</th> <th>population_proper</th> <th>density</th> <th>source</th><th>incorporated</th><th>timezone</th><th>zips</th><th>id</th></tr>
+        <tr><th>5</th><td>Telma	</td><td>Telma	</td><td>WA</td><td>Washington</td><td>53007</td><td>Chelan</td><td>47.8432</td><td>-120.8157	</td><td>NaN</td><td>NaN</td><td>1.4</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98826	</td><td>1840037825</td></tr>
+        <tr><th>7</th><td>Mondovi</td><td>Mondovi</td><td>WA</td><td>Washington</td><td>53043</td><td>Lincoln</td><td>47.6813</td><td>-118.0164	</td><td>NaN</td><td>NaN</td><td>9.4</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>99122	</td><td>1840037576</td></tr>
+        <tr><th>9</th><td>Pleasant Hill	</td><td>Pleasant Hill	</td><td>WA</td><td>Washington</td><td>53033</td><td>King</td><td>47.6154</td><td>-121.9096	</td><td>NaN</td><td>NaN</td><td>25.8</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98014	</td><td>1840037805</td></tr>
+        <tr><th>8</th><td>Washtucna</td><td>Washtucna</td><td>WA</td><td>Washington</td><td>53001</td><td>Adams</td><td>46.7539</td><td>-118.3104	</td><td>195.0</td><td>195.0</td><td>108.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99371	</td><td>1840022312</td></tr>
+        <tr><th>1</th><td>Edison</td><td>Edison</td><td>WA</td><td>Washington</td><td>53057</td><td>Skagit</td><td>48.5602</td><td>-122.4311</td><td>NaN</td><td>NaN</td><td>127.4	</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98232	</td><td>1840017314</td></tr>
+        <tr><th>6</th><td>Kahlotus</td><td>Kahlotus</td><td>WA</td><td>Washington</td><td>53021</td><td>Franklin</td><td>46.6436</td><td>-118.5566	</td><td>189.0</td><td>189.0</td><td>156.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99335	</td><td>1840018478</td></tr>
+        <tr><th>2</th><td>Packwood</td><td>Packwood</td><td>WA</td><td>Washington</td><td>53041</td><td>Lewis</td><td>46.6085</td><td>-121.6702</td><td>NaN</td><td>NaN</td><td>213.9</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98361	</td><td>1840025265</td></tr>
+        <tr><th>3</th><td>Wautauga Beach</td><td>Wautauga Beach	</td><td>WA</td><td>Washington</td><td>53035</td><td>Kitsap</td><td>47.5862</td><td>-122.5482</td><td>NaN</td><td>NaN</td><td>261.7</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98366	</td><td>1840037725</td></tr>
+      <tr><th>4</th><td>Harper</td><td>Harper</td><td>WA</td><td>Washington</td><td>53035</td><td>Kitsap</td><td>47.5207</td><td>-122.5196	</td><td>NaN</td><td>NaN</td><td>342.1</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98366	</td><td>1840037659</td></tr>
+      <tr><th>0</th><td>Prairie Ridge</td><td>Prairie Ridge</td><td>WA</td><td>Washington</td><td>53053</td><td>Pierce</td><td>47.1443</td><td>-122.1408</td><td>NaN</td><td>NaN</td><td>1349.8</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98360 98391	</td><td>1840037882</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p><code>
+      csv_df.sort_values('density', ascending=False) # descending order
+    </code></p>
+    <button class="btn btn-info btn-sm" id="15" onclick="toggle('dec', '15')">Show Result</button>
+    <div id="dec" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>city</th> <th>city_ascii	</th>  <th>state_id</th> <th>state_name</th> <th>county_fips</th> <th>county_name</th> <th>lat</th> <th>lng</th> <th>population</th> <th>population_proper</th> <th>density</th> <th>source</th><th>incorporated</th><th>timezone</th><th>zips</th><th>id</th></tr>
+        <tr><th>0</th><td>Prairie Ridge</td><td>Prairie Ridge</td><td>WA</td><td>Washington</td><td>53053</td><td>Pierce</td><td>47.1443</td><td>-122.1408</td><td>NaN</td><td>NaN</td><td>1349.8</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98360 98391	</td><td>1840037882</td></tr>
+        <tr><th>4</th><td>Harper</td><td>Harper</td><td>WA</td><td>Washington</td><td>53035</td><td>Kitsap</td><td>47.5207</td><td>-122.5196	</td><td>NaN</td><td>NaN</td><td>342.1</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98366	</td><td>1840037659</td></tr>
+        <tr><th>3</th><td>Wautauga Beach</td><td>Wautauga Beach	</td><td>WA</td><td>Washington</td><td>53035</td><td>Kitsap</td><td>47.5862</td><td>-122.5482</td><td>NaN</td><td>NaN</td><td>261.7</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98366	</td><td>1840037725</td></tr>
+        <tr><th>2</th><td>Packwood</td><td>Packwood</td><td>WA</td><td>Washington</td><td>53041</td><td>Lewis</td><td>46.6085</td><td>-121.6702</td><td>NaN</td><td>NaN</td><td>213.9</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98361	</td><td>1840025265</td></tr>
+        <tr><th>6</th><td>Kahlotus</td><td>Kahlotus</td><td>WA</td><td>Washington</td><td>53021</td><td>Franklin</td><td>46.6436</td><td>-118.5566	</td><td>189.0</td><td>189.0</td><td>156.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99335	</td><td>1840018478</td></tr>
+        <tr><th>1</th><td>Edison</td><td>Edison</td><td>WA</td><td>Washington</td><td>53057</td><td>Skagit</td><td>48.5602</td><td>-122.4311</td><td>NaN</td><td>NaN</td><td>127.4	</td><td>polygon</td><td>False</td><td>America/Los_Angeles	</td><td>98232	</td><td>1840017314</td></tr>
+        <tr><th>8</th><td>Washtucna</td><td>Washtucna</td><td>WA</td><td>Washington</td><td>53001</td><td>Adams</td><td>46.7539</td><td>-118.3104	</td><td>195.0</td><td>195.0</td><td>108.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99371	</td><td>1840022312</td></tr>
+        <tr><th>9</th><td>Pleasant Hill	</td><td>Pleasant Hill	</td><td>WA</td><td>Washington</td><td>53033</td><td>King</td><td>47.6154</td><td>-121.9096	</td><td>NaN</td><td>NaN</td><td>25.8</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98014	</td><td>1840037805</td></tr>
+      <tr><th>7</th><td>Mondovi</td><td>Mondovi</td><td>WA</td><td>Washington</td><td>53043</td><td>Lincoln</td><td>47.6813</td><td>-118.0164	</td><td>NaN</td><td>NaN</td><td>9.4</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>99122	</td><td>1840037576</td></tr>
+      <tr><th>5</th><td>Telma	</td><td>Telma	</td><td>WA</td><td>Washington</td><td>53007</td><td>Chelan</td><td>47.8432</td><td>-120.8157	</td><td>NaN</td><td>NaN</td><td>1.4</td><td>point</td><td>False</td><td>America/Los_Angeles	</td><td>98826	</td><td>1840037825</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p><code>.dropna()</code> allows you to drop any row with null values in them, which clears the DataFrame of any outliers affecting statistical values and focuses you on the meaningful data values. As you can see from the shape of the DataFrame after you run this command, there are less rows.<br><code>
+      csv_df.dropna()<br>
+      print(csv_df.shape)
+    </code></p>
+    <button class="btn btn-info btn-sm" id="16" onclick="toggle('new_shape', '16')">Show Result</button>
+    <div id="new_shape" style="display: none;">(19361, 16)</div>
+    <div style="height: 10px;"></div>
+    <p>Show only the first 10 rows where the latitute of the city is greater than 45 degrees.<br><code>
+      print(csv_df[csv_df['lat'] > 45].head(10))
+    </code></p>
+    <button class="btn btn-info btn-sm" id="17" onclick="toggle('lat', '17')">Show Result</button>
+    <div id="lat" style="display: none;">
+      <table border="1">
+        <tr>  <th></th>  <th>city</th> <th>city_ascii	</th>  <th>state_id</th> <th>state_name</th> <th>county_fips</th> <th>county_name</th> <th>lat</th> <th>lng</th> <th>population</th> <th>population_proper</th> <th>density</th> <th>source</th><th>incorporated</th><th>timezone</th><th>zips</th><th>id</th></tr>
+        <tr><th>6</th><td>Kahlotus</td><td>Kahlotus</td><td>WA</td><td>Washington</td><td>53021</td><td>Franklin</td><td>46.6436</td><td>-118.5566	</td><td>189.0</td><td>189.0</td><td>156.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99335	</td><td>1840018478</td></tr>
+        <tr><th>8</th><td>Washtucna</td><td>Washtucna</td><td>WA</td><td>Washington</td><td>53001</td><td>Adams</td><td>46.7539</td><td>-118.3104	</td><td>195.0</td><td>195.0</td><td>108.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99371	</td><td>1840022312</td></tr>
+        <tr><th>10</th><td>Toledo</td><td>Toledo</td><td>WA</td><td>Washington</td><td>53041</td><td>Lewis</td><td>46.4412</td><td>-122.8494	</td><td>738.0</td><td>738.0</td><td>708.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>98591	</td><td>1840021162</td></tr>
+        <tr><th>12</th><td>Renton</td><td>Renton</td><td>WA</td><td>Washington</td><td>53033</td><td>King</td><td>47.4757	</td><td>-122.1904		</td><td>100953.0</td><td>100953.0</td><td>1663.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>98059 98058 98057 98056 98055	</td><td>1840019827</td></tr>
+        <tr><th>13</th><td>Chehalis</td><td>Chehalis	</td><td>WA</td><td>Washington</td><td>53041</td><td>Lewis</td><td>46.6649</td><td>-122.9660	</td><td>7498.0</td><td>7498.0</td><td>523.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>98532	</td><td>1840018472</td></tr>
+        <tr><th>20</th><td>Waverly</td><td>Waverly</td><td>WA</td><td>Washington</td><td>53063</td><td>Spokane</td><td>47.3380</td><td>-117.2313	</td><td>110.0</td><td>110.0</td><td>102.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99012 99039		</td><td>1840022291</td></tr>
+        <tr><th>26</th><td>Mercer Island	</td><td>Mercer Island	</td><td>WA</td><td>Washington</td><td>53033</td><td>King</td><td>47.5624</td><td>-122.2265	</td><td>25134.0</td><td>25134.0</td><td>1535.0	</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>98040	</td><td>1840019830</td></tr>
+        <tr><th>27</th><td>Lynnwood	</td><td>Lynnwood	</td><td>WA</td><td>Washington</td><td>53061</td><td>Snohomish</td><td>47.8285</td><td>-122.3034		</td><td>38092.0</td><td>38092.0</td><td>1873.0	</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>98037 98036 98046		</td><td>1840019788</td></tr>
+      <tr><th>28</th><td>Coulee City	</td><td>Coulee City	</td><td>WA</td><td>Washington</td><td>53025</td><td>Grant</td><td>47.6123	</td><td>-119.2890		</td><td>569.0</td><td>569.0</td><td>243.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>99115	</td><td>1840022293</td></tr>
+      <tr><th>30</th><td>Centralia	</td><td>Centralia	</td><td>WA</td><td>Washington</td><td>53041</td><td>Lewis</td><td>46.7226	</td><td>-122.9695		</td><td>41077.0	</td><td>16982.0</td><td>875.0</td><td>polygon</td><td>True</td><td>America/Los_Angeles	</td><td>98531	</td><td>1840018471</td></tr>
+      </table>
+    </div>
+    <div style="height: 10px;"></div>
+    <p>Show the name of the city and the state where the state that the city belongs to is New York. Only the first 20 results should be displayed.<br><code>
+      print(csv_df[['city','state_id']].query('state_id == "NY"').head(20))
+    </code></p>
+    <button class="btn btn-info btn-sm" id="18" onclick="toggle('ny', '18')">Show Result</button>
+    <div id="ny" style="display: none;">
+      <table border="1">
+        <tr><th></th><th>city</th><th>state_id</th></tr>
+          <tr><th>11601</th><td>Springville</td><td>NY</td></tr>
+          <tr><th>11602</th><td>Franklinville</td><td>NY</td></tr>
+          <tr><th>11603</th><td>Brewster</td><td>NY</td></tr>
+          <tr><th>11607</th><td>Kensington</td><td>NY</td></tr>
+          <tr><th>11609</th><td>Dundee</td><td>NY</td></tr>
+          <tr><th>11610</th><td>Bolivar</td><td>NY</td></tr>
+          <tr><th>11611</th><td>Wayland</td><td>NY</td></tr>
+          <tr><th>11616</th><td>Malverne</td><td>NY</td></tr>
+          <tr><th>11617</th><td>Valley Stream	</td><td>NY</td></tr>
+          <tr><th>11618</th><td>Pomona</td><td>NY</td></tr>
+          <tr><th>11620</th><td>Marcellus</td><td>NY</td></tr>
+          <tr><th>11622</th><td>Liverpool</td><td>NY</td></tr>
+          <tr><th>11624</th><td>Great Neck Plaza	</td><td>NY</td></tr>
+          <tr><th>11626</th><td>Greenwood Lake	</td><td>NY</td></tr>
+          <tr><th>11628</th><td>Canisteo</td><td>NY</td></tr>
+          <tr><th>11629</th><td>Brushton</td><td>NY</td></tr>
+          <tr><th>11631</th><td>Alden</td><td>NY</td></tr>
+          <tr><th>11635</th><td>Brightwaters</td><td>NY</td></tr>
+          <tr><th>11639</th><td>New Berlin	</td><td>NY</td></tr>
+          <tr><th>11640</th><td>Antwerp</td><td>NY</td></tr>
+      </table>
+    </div>
+    </main>
+    <hr>
+    <footer class="page-footer font-small blue pt-4">
+		    <div class="footer-copyright text-center py-3">
+      For more information on this python library, visit the <a href="https://pandas.pydata.org/">documentation</a>.</div>
+    </footer>
+  </body>
+  <script type="text/javascript">
+    function toggle(id, bid) {
+      var x = document.getElementById(id);
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        document.getElementById(bid).innerHTML = "Hide Result";
+      } else {
+        x.style.display = "none";
+        document.getElementById(bid).innerHTML = "Show Result";
+      }
+    }
+  </script>
+</html>
