@@ -55,12 +55,12 @@
       <ul>
         <li>Installed through the terminal by executing the command:
           <ul>
-            <li>pip install pandas</li>
+            <li><code>pip install pandas</code></li>
           </ul>
         </li>
         <li>Use in a Python file by importing the pandas library
           <ul>
-            <li>import pandas as pd</li>
+            <li><code>import pandas as pd</code></li>
           </ul>
         </li>
       </ul>
@@ -75,9 +75,81 @@
     </table>
     <br>
     <hr>
+    <h2>Example Code</h2>
+    <h3>Create a Series</h3>
+    <code>
+      your_series = pd.Series([1,2,3,4]) <br>
+      print(your_series)
+    })
+    </code>
+    <p>{{ series | safe}}</p>
+    <h3>Create a DataFrame</h3>
+    <code>
+      df = pd.DataFrame({
+    "Integers": [1, 23, 456, 7890],
+    "Strings": ['hello', 'pandas', 'world', '!'],
+    "Floats": [1.23, 23.5, 45.6, 7.890],
+    "Booleans": [True, False, True, False]
+    })
+    </code>
+    <p>{{ data | safe}}</p>
+    <h3>Get a Column from a DataFrame</h3>
+    <code>
+      df["Integers"]
+    </code>
+    <p>{{ integers | safe}}</p>
+    <code>
+      df[["Integers","Strings"]]
+    </code>
+    <p>{{ two_columns | safe}}</p>
+    <p>{{ stat | safe}}</p>
+    <h3>Create a DataFrame with Existing list</h3>
+    <code>
+      your_list = [4, 'softdev', 12.5, False] <br>
+      list_df = pd.DataFrame([your_list], columns=['Integers', 'Strings', 'Floats', 'Booleans']) <br>
+      print(list_df)
+    </code>
+    <p>{{ list_df | safe}}</p>
+    <code>
+      df = df.append(list_df, ignore_index=True)
+    </code>
+    <p>{{ new_df | safe}}</p>
+    <h3>Create a DataFrame with Existing csv</h3>
+    <code>
+      csv_path = os.path.join('uscities.csv') <br>
+      df = pd.read_csv(csv_path, delimiter=",") <br>
+      df.head(10)
+    </code>
+    <p>{{ head | safe}}</p>
+    <p>{{ shape }}</p>
+    <code>
+      tail = csv_df.tail()
+      print(tail)
+    </code>
+    <p>{{ tail | safe }}</p>
+    <p>{{ max | safe }}</p>
+    <p>{{ min | safe }}</p>
+    <p>{{ median | safe }}</p>
+    <p>{{ sample | safe }}</p>
+    <code>
+      df.sort_values('density') # ascending order
+    </code>
+    <p>{{ asc | safe }}</p>
+    <code>
+      df.sort_values('density',ascending=False) # descending order
+    </code>
+    <p>{{ dec | safe }}</p>
+    <p>{{ new_shape }}</p>
+    <code>
+      df[df['lat'] > 45]
+    </code>
+    <p>{{ lat | safe }}</p>
+    <code>
+      df[['city','state_id']].query('state_id == "NY"')
+    </code>
+    <p>{{ ny | safe }}</p>
     <br>
-    <h3>Example Code</h3>
-
+    <hr>
     <footer>
       For more information, visit the <a href="https://pandas.pydata.org/">documentation</a>.
     </footer>
